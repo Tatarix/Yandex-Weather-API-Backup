@@ -25,7 +25,8 @@ res_vko = list(vko().values())
 def result():
     df_vko = pd.DataFrame(res_vko).transpose()
     df_vko.columns = ['Температура', 'Скорость ветра', 'Погодные условия']
-    writer = pd.ExcelWriter('test17.xlsx')
+    df_vko.index = ['Внуково']
+    writer = pd.ExcelWriter('test18.xlsx')
     df_vko.to_excel(writer)
     return writer.save()
 result()
